@@ -30,7 +30,7 @@ gem 'sidekiq'
 
 # Reduces boot times through caching; required in config/boot.rb
 
-gem 'aws-sdk-s3'
+gem 'aws-sdk-s3', require: false
 
 gem 'bootsnap', '>= 1.4.4', require: false
 

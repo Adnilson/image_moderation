@@ -38,6 +38,7 @@ yarn-error.log
 
 .procfile
 .env
+.env.development.local
 .ruby-version
 
 # vim files
