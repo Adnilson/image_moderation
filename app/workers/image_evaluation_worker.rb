@@ -3,7 +3,8 @@ class ImageEvaluationWorker
 
   def perform(report_id, image_url)
     response = Requests::ImageEvaluationRequest.new(image_url).request
-    if response.status == 'success'
+
+    if response.code == '200'
       score = ScoreCalculator.new(JSON.parse(response.body)).calculate
 
       Report.update(report_id, graphic_score: score, evaluated: true)
