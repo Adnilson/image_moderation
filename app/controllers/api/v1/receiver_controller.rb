@@ -5,15 +5,16 @@ module Api
 
       def create
         @report = Report.new(report_params)
-        image_url = params[:payload][:image_url]
+        image_url = URI.decode_www_form_component(params[:payload][:image_url])
 
         if @report.save
           ImageEvaluationWorker.perform_async(@report.id, image_url)
-          # Attach image
+          AttachImageWorker.perform_async(@report.id, image_url)
 
           render json: @report, status: :created
         else
           render json: @report.errors, status: :unprocessable_entity
+        end
       end
 
       def report_params
