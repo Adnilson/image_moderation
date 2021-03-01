@@ -5,9 +5,9 @@ class SendReportWorker
     response = Requests::SendReportRequest.new(Report.find(report_id)).request
 
     if response.code == '200'
-      # log
+      logger.info("Report nr. #{report_id} was successfuly delivered!")
     else
-      raise 'Report request failed'
+      raise 'Report request FAILED'
     end
   end
 end
