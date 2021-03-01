@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Requests
 
   API_URL = 'https://api.sightengine.com/1.0/check.json'
