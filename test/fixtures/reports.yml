@@ -1,15 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 
+  user_id:
   moderated: false
   evaluated: false
-  graphic_score: false
+  graphic_score:
   caller_url: MyString
+  result:
 
 two:
-  user_id: 
+  user_id:
   moderated: false
   evaluated: false
-  graphic_score: false
+  graphic_score: 0.02
   caller_url: MyString
+  result:
