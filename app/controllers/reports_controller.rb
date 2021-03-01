@@ -13,9 +13,11 @@ class ReportsController < ApplicationController
     @report = Report.find(params[:id])
 
     if @report.update(report_params.merge(moderated: true))
+      SendReportWorker.perform_async(@report.id)
+
       redirect_to reports_url
     else
-      redirect_to @report
+      redirect_to edit_report_path(@report)
     end
   end
 
