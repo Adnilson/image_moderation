@@ -18,7 +18,7 @@ module Requests
       request = Net::HTTP::Post.new(uri.request_uri, header)
       request.body = body.to_json
 
-      http.request
+      http.request(request)
     end
 
     private
