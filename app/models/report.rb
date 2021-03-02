@@ -7,5 +7,9 @@ class Report < ApplicationRecord
 
   validates :user_id, :caller_url, presence: true, on: :create
 
-  validates_format_of :result, with: RESULT_REGEX, on: :update
+  validates_format_of :result, with: RESULT_REGEX, if: :moderated?
+
+  def moderated?
+    moderated
+  end
 end
