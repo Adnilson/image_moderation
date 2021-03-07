@@ -1,4 +1,8 @@
 class ReportsController < ApplicationController
+
+  http_basic_authenticate_with name: ENV['REPORTS_MODERATOR'],
+                               password: ENV['REPORTS_PASSWORD']
+
   def index
     @reports = Report
                 .where(moderated: false)
