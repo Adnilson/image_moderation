@@ -40,6 +40,13 @@ IMAGE_EVALUATOR_USER
 IMAGE_EVALUATOR_SECRET
 ```
 
+Configure both variables in order to see and moderate the reports
+
+```
+REPORTS_MODERATOR
+REPORTS_PASSWORD
+```
+
 ### Build the app for development
 
 `docker-compose build`
