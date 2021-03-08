@@ -7,6 +7,7 @@ class ReportsController < ApplicationController
     @reports = Report
                 .where(moderated: false)
                 .order('graphic_score DESC NULLS LAST')
+                .page(params[:page])
   end
 
   def edit
