@@ -1,9 +1,18 @@
 <h1>Reports</h1>
 
-<ul>
+<div class="table-container" role="table" aria-label="Reports">
+  <div class="flex-table header" role="rowgroup">
+    <div class="flex-row first" role="columnheader">Report Number</div>
+    <div class="flex-row" role="columnheader">Evaluated</div>
+    <div class="flex-row" role="columnheader">Created</div>
+  </div>
   <% @reports.each do |report| %>
-    <li>
-      <%= link_to report.id, edit_report_path(report) %>
-    </li>
+    <div class="flex-table row" role="rowgroup">
+      <div class="flex-row first" role="cell">
+        <%= link_to "Report ##{report.id}", edit_report_path(report) %>
+      </div>
+      <div class="flex-row first" role="cell"><%= report.evaluated %></div>
+      <div class="flex-row" role="cell"><%= report.created_at %></div>
+    </div>
   <% end %>
-</ul>
+</div>

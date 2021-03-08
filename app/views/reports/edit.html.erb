@@ -1,16 +1,18 @@
-<h1>Report #@report.id</h1>
+<h1>Report #<%= @report.id %></h1>
 
-<div>
+<div class="report">
   <%= image_tag @report.image.url %>
-</div>
 
-<div>
-  <%= @report.graphic_score || 'Not evaluated yet' %>
-</div>
+  <div class="report-score">
+    <%= score(@report) %>
+  </div>
 
-<div>
-  <%= form_with model: @report do |form| %>
-    <%= form.select :result, {"Reject": "rejected", "Approve": "approved"}, selected: 'Approve' %>
-    <%= form.submit %>
+  <% if @report.evaluated? %>
+    <div class="report-form">
+      <%= form_with model: @report do |form| %>
+        <%= form.select :result, {"Reject": "rejected", "Approve": "approved"}, selected: 'Approve' %>
+        <%= form.submit %>
+      <% end %>
+    </div>
   <% end %>
 </div>
